@@ -16,16 +16,8 @@ public class AtualizacaoTopicoForm {
 	@NotNull @NotEmpty @Length(min = 10)
 	private String mensagem;
 
-	public String getTitulo() {
-		return titulo;
-	}
-
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
-	}
-
-	public String getMensagem() {
-		return mensagem;
 	}
 
 	public void setMensagem(String mensagem) {
