@@ -11,6 +11,7 @@ import br.com.alura.forum.repository.CursoRepository;
 
 public class TopicoForm {
 
+	//Bean validation
 	@NotNull @NotEmpty @Length(min = 5)
 	private String titulo;
 	

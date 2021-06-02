@@ -36,7 +36,9 @@ import br.com.alura.forum.repository.TopicoRepository;
 @RestController
 @RequestMapping("/topicos")
 public class TopicosController {
-	
+
+	//Anotações @Valid são do Bean validation pra rodar as validações nos Forms que possuem essas anotações
+
 	@Autowired
 	private TopicoRepository topicoRepository;
 	
@@ -46,7 +48,7 @@ public class TopicosController {
 	@GetMapping
 	@Cacheable(value = "listaDeTopicos")
 	public Page<TopicoDto> lista(@RequestParam(required = false) String nomeCurso, 
-			@PageableDefault(sort = "dataCriacao", direction = Direction.DESC, page = 0, size = 10) Pageable paginacao) {
+			@PageableDefault(sort = "id", direction = Direction.ASC, page = 0, size = 10) Pageable paginacao) {
 		
 		if (nomeCurso == null) {
 			Page<Topico> topicos = topicoRepository.findAll(paginacao);
@@ -77,7 +79,8 @@ public class TopicosController {
 		
 		return ResponseEntity.notFound().build();
 	}
-	
+
+	//@Transactional -> Efetuar o commit automático da transação, caso não ocorra uma exception
 	@PutMapping("/{id}")
 	@Transactional
 	@CacheEvict(value = "listaDeTopicos", allEntries = true)
@@ -90,7 +93,8 @@ public class TopicosController {
 		
 		return ResponseEntity.notFound().build();
 	}
-	
+
+	//@Transactional -> Efetuar o commit automático da transação, caso não ocorra uma exception
 	@DeleteMapping("/{id}")
 	@Transactional
 	@CacheEvict(value = "listaDeTopicos", allEntries = true)
