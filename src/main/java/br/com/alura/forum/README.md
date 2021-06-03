@@ -13,7 +13,7 @@ módulo SpringDataWebSupport, adicionando a anotação @EnableSpringDataWebSuppo
 <h2>Sobre Spring Cache </h2>
 
 - Para utilizar o módulo de cache do Spring Boot, devemos adicioná-lo como dependência do projeto no arquivo pom.xml;
-- Para habilitar o uso de caches na aplicação, devemos adicionar a anotação @EnableCaching na classe ForumApplication;
+- Para habilitar o uso de caches na aplicação, devemos adicionar a anotação @EnableCaching na classe Application (Main);
 - Para que o Spring guarde o retorno de um método no cache, devemos anotá-lo com @Cacheable;
 - Para o Spring invalidar algum cache após um determinado método ser chamado, devemos anotá-lo com @CacheEvict;
 - Devemos utilizar cache apenas para as informações que nunca ou raramente são atualizadas no banco de dados.
