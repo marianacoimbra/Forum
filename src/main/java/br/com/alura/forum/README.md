@@ -9,3 +9,11 @@ devemos alterar o retorno do método do controller de List<> para Page<>;
 passando como parâmetro a direção da ordenação, utilizando a classe Direction, e o nome do atributo para ordenar;
 - Para receber os parâmetros de ordenação e paginação diretamente nos métodos do controller, devemos habilitar o
 módulo SpringDataWebSupport, adicionando a anotação @EnableSpringDataWebSupport na classe ForumApplication.
+
+<h2>Sobre Spring Cache </h2>
+
+- Para utilizar o módulo de cache do Spring Boot, devemos adicioná-lo como dependência do projeto no arquivo pom.xml;
+- Para habilitar o uso de caches na aplicação, devemos adicionar a anotação @EnableCaching na classe ForumApplication;
+- Para que o Spring guarde o retorno de um método no cache, devemos anotá-lo com @Cacheable;
+- Para o Spring invalidar algum cache após um determinado método ser chamado, devemos anotá-lo com @CacheEvict;
+- Devemos utilizar cache apenas para as informações que nunca ou raramente são atualizadas no banco de dados.
