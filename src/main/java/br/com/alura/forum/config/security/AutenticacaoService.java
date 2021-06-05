@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 import br.com.alura.forum.modelo.Usuario;
 import br.com.alura.forum.repository.UsuarioRepository;
 
+
 @Service
 public class AutenticacaoService implements UserDetailsService {
-	
 	@Autowired
 	private UsuarioRepository repository;
 
@@ -23,7 +23,7 @@ public class AutenticacaoService implements UserDetailsService {
 		if (usuario.isPresent()) {
 			return usuario.get();
 		}
-		
+
 		throw new UsernameNotFoundException("Dados inválidos!");
 	}
 

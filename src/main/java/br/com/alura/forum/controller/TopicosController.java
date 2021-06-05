@@ -61,6 +61,7 @@ public class TopicosController {
 	
 	@PostMapping
 	@Transactional
+	//Invalida o cache e o atualiza com a nova inserção
 	@CacheEvict(value = "listaDeTopicos", allEntries = true)
 	public ResponseEntity<TopicoDto> cadastrar(@RequestBody @Valid TopicoForm form, UriComponentsBuilder uriBuilder) {
 		Topico topico = form.converter(cursoRepository);
