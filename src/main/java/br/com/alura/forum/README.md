@@ -40,3 +40,13 @@ módulo SpringDataWebSupport, adicionando a anotação @EnableSpringDataWebSuppo
 - Para criar o token JWT, devemos utilizar a classe Jwts;
 - O token tem um período de expiração, que pode ser definida no arquivo application.properties;
 - Para injetar uma propriedade do arquivo application.properties, devemos utilizar a anotação @Value.
+
+<h2> Autenticação via JWT </h2>
+
+- Para enviar o token JWT na requisição, é necessário adicionar o cabeçalho Authorization, passando como valor Bearer token;
+- Para criar um filtro no Spring, devemos criar uma classe que herda da classe OncePerRequestFilter;
+- Para recuperar o token JWT da requisição no filter, devemos chamar o método request.getHeader("Authorization");
+- Para habilitar o filtro no Spring Security, devemos chamar o método and().addFilterBefore(new AutenticacaoViaTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+- Para indicar ao Spring Security que o cliente está autenticado, devemos utilizar a classe SecurityContextHolder, chamando o método SecurityContextHolder.getContext().setAuthentication(authentication).
+
+
