@@ -60,4 +60,12 @@ módulo SpringDataWebSupport, adicionando a anotação @EnableSpringDataWebSuppo
 - Para o Spring Boot Admin conseguir monitorar a nossa API, devemos adicionar no projeto da API o módulo spring-boot-admin-client e também adicionar a propriedade spring.boot.admin.client.url=http://localhost:8081 no arquivo application.properties;
 - Para acessar a interface gráfica do Spring Boot Admin, devemos entrar no endereço http://localhost:8081.
 
+<h2> Documentação </h2>
 
+- Para documentar a nossa API Rest, podemos utilizar o Swagger, com o módulo SpringFox Swagger;
+- Para utilizar o SpringFox Swagger na API, devemos adicionar suas dependências no arquivo pom.xml;
+- Para habilitar o Swagger na API, devemos adicionar a anotação @EnableSwagger2 na classe ForumApplication;
+- As configurações do Swagger devem ser feitas criando-se uma classe chamada SwaggerConfigurations e adicionando nela a anotação @Configuration;
+- Para configurar quais endpoints e pacotes da API o Swagger deve gerar a documentação, devemos criar um método anotado com @Bean, que devolve um objeto do tipo Docket;
+- Para acessar a documentação da API, devemos entrar no endereço http://localhost:8080/swagger-ui.html;
+- Para liberar acesso ao Swagger no Spring Security, devemos chamar o seguinte método web.ignoring().antMatchers("/**.html", "/v2/api-docs", "/webjars/**", "/configuration/**", "/swagger-resources/**"), dentro do método void configure(WebSecurity web), que está na classe SecurityConfigurations.
