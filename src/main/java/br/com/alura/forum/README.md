@@ -75,3 +75,14 @@ módulo SpringDataWebSupport, adicionando a anotação @EnableSpringDataWebSuppo
 - Para atualizar a versão do Spring Boot na aplicação, basta alterar a tag <version> da tag <parent>, no arquivo pom.xml. 
 - É importante ler as release notes das novas versões do Spring Boot, para identificar possíveis quebras de compatibilidades ao atualizar a aplicação.
 - É possível restringir o acesso a determinados endpoints da aplicação, de acordo com o perfil do usuário autenticado, utilizando o método hasRole(“NOME_DO_ROLE”) nas configurações de segurança da aplicação.
+
+<h2> Testes Automatizados </h2>
+
+- É possível escrever testes automatizados de classes que são beans do Spring, como Controllers e Repositories.
+- É possível utilizar injeção de dependências nas classes de testes automatizados.
+- A anotação @SpringBootTest deve ser utilizada nas classes de testes automatizados para que o Spring inicialize o servidor e disponibilize os beans da aplicação.
+- Ao testar uma interface Repository devemos, preferencialmente, utilizar a anotação @DataJpaTest.
+- Por padrão, os testes automatizados dos repositories utilizam um banco de dados em memória, como o h2.
+- É possível utilizar outro banco de dados para os testes automatizados, utilizando a anotação @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE).
+- É possível forçar um profile específico para os testes automatizados com a utilização da anotação @ActiveProfiles.
+ - Para conseguir injetar o MockMvc devemos anotar a classe de teste com @AutoConfigureMockMvc.

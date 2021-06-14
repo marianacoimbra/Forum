@@ -22,11 +22,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class DevSecurityConfigurations extends WebSecurityConfigurerAdapter {
 
 	//Configuracoes de autorizacao
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		HttpSecurity httpSecurity = http.authorizeRequests()
+		http.authorizeRequests()
 				.antMatchers("/**").permitAll()
 				.and().csrf().disable();
 	}
-
 }
